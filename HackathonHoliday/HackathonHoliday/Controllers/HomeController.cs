@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackathonHoliday.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,51 @@ namespace HackathonHoliday.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Login(string username)
         {
-            ViewBag.Message = "Your application description page.";
-
+            return RedirectToAction(nameof(Polls));
+        }
+        
+        [HttpGet]
+        public ActionResult Polls()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpGet]
+        public ActionResult CreatePoll()
         {
-            ViewBag.Message = "Your contact page.";
+            return View(new PollInformation());
+        }
 
+        [HttpPost]
+        public ActionResult CreatePoll(PollInformation model)
+        {
+            return RedirectToAction(nameof(PollDetail));
+        }
+
+        [HttpGet]
+        public ActionResult PollDetail()
+        {
+            return View(new PollInformation());
+        }
+
+        public ActionResult ChoiceDetail()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChoiceDetail(ChoiceInformation model)
+        {
+            return RedirectToAction(nameof(PollDetail));
         }
     }
 }

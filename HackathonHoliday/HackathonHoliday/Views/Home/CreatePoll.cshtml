@@ -1,0 +1,17 @@
+﻿@model HackathonHoliday.Models.PollInformation
+
+    @{
+        ViewBag.Title = "Create Poll";
+    }
+
+    <h2>CreatePoll</h2>
+
+    <form action="CreatePoll" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Pollname</label>
+            <input type="text" class="form-control" asp-for="Name" placeholder="poll name">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+

@@ -1,11 +1,13 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Login";
 }
 
-<form action="@Url.Action("Login","Home")" method="post">
+<form action="Login" method="post">
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" placeholder="example name...">
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
