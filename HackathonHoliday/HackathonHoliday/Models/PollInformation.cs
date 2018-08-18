@@ -10,5 +10,7 @@ namespace HackathonHoliday.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public IEnumerable<ChoiceInformation> Choices { get; set; }
+        public string OwnerName { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

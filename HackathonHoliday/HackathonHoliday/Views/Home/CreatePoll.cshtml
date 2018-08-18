@@ -1,17 +1,20 @@
 ﻿@model HackathonHoliday.Models.PollInformation
 
-    @{
-        ViewBag.Title = "Create Poll";
-    }
+@{
+    ViewBag.Title = "Create Poll";
+}
 
-    <h2>CreatePoll</h2>
+<div class="text-center">
+    <h1 style="color:grey"><b>Create Poll</b></h1>
 
-    <form action="CreatePoll" method="post">
-        <div class="form-group">
-            <label asp-for="Name">Pollname</label>
-            <input type="text" class="form-control" asp-for="Name" placeholder="poll name">
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-
-
+    <center>
+        <form action="CreatePoll" method="post">
+            <div class="form-group" style="margin: 5em">
+                <label asp-for="Name">Topic Poll</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style= "display: block; background-color: #eaeaea; border: unset;", type = "text", required = "required" })
+                <p>By Dream</p>
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </center>
+</div>

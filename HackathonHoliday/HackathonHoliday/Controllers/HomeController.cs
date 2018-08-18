@@ -34,12 +34,12 @@ namespace HackathonHoliday.Controllers
             FormsAuthentication.SetAuthCookie(username, true);
             return RedirectToAction(nameof(Polls));
         }
-        
+
         [HttpGet]
         public async Task<ActionResult> Polls()
         {
             var polls = await pollDac.GetPolls();
-            return View();
+            return View(new List<PollInformation>());
         }
 
         [HttpGet]
@@ -62,7 +62,7 @@ namespace HackathonHoliday.Controllers
         }
 
         [HttpGet]
-        public ActionResult PollDetail()
+        public ActionResult PollDetail(string pollid)
         {
             return View(new PollInformation());
         }
