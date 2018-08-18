@@ -140,7 +140,7 @@ namespace HackathonHoliday.Controllers
                 Rate = rate
             };
 
-            return View(new DisplayChoiceInformation());
+            return View(model);
         }
 
         [HttpPost]
@@ -169,7 +169,7 @@ namespace HackathonHoliday.Controllers
             }
             choice.Votes = votes;
             await choiceDac.UpdateChoice(choice);
-            return RedirectToAction(nameof(PollDetail));
+            return RedirectToAction(nameof(PollDetail), new { pollid = model.PollRefId });
         }
     }
 }

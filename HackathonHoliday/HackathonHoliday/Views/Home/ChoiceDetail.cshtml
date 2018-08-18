@@ -35,6 +35,12 @@
 </div>
 
 <form action="ChoiceDetail" method="post" class="col-md-11 col-md-offset-1">
+    @Html.HiddenFor(it => it.Id)
+    @Html.HiddenFor(it => it.Name)
+    @Html.HiddenFor(it => it.PollCreateDate)
+    @Html.HiddenFor(it => it.PollName)
+    @Html.HiddenFor(it => it.PollOwnerName)
+    @Html.HiddenFor(it => it.PollRefId)
 
     <div class="radio">
         <label>
