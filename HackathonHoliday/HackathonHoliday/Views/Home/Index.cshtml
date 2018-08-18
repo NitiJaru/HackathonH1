@@ -3,15 +3,17 @@
 }
 
 <div style="padding-top: 5em">
-    <div class="text-center form-inline" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-        <img src="~/Images/login.png" width="200" />
-        <br />
-        <h3 style="color:grey"><b><i>Login</i></b></h3>
-        <form action="@Url.Action("Login","Home")" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required style="background-color: #eaeaea; border: unset;">
-            </div>
-            <button type="submit" style="min-width: 60px; border:unset; background-color: unset"><img src="~/Images/loginbutton.png" /></button>
-        </form>
+    <div class="text-center">
+        <div class="form-inline">
+            <img src="~/Images/login.png" width="200" />
+            <br />
+            <h3 style="color:grey"><b><i>Login</i></b></h3>
+            <form action="@Url.Action("Login","Home")" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required style="background-color: #eaeaea; border: unset;">
+                </div>
+                <button type="submit" style="min-width: 60px; border:unset; background-color: unset"><img src="~/Images/loginbutton.png" /></button>
+            </form>
+        </div>
     </div>
 </div>
