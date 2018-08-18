@@ -189,6 +189,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\login.png" />
     <Content Include="Images\loginbutton.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\starvoted.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -219,6 +221,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ChoiceDetail.cshtml" />
+    <Content Include="Views\Home\CreatePoll.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\PollDetail.cshtml" />
+    <Content Include="Views\Home\Polls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

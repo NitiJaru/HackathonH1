@@ -64,11 +64,11 @@ namespace HackathonHoliday.Controllers
         [HttpGet]
         public ActionResult PollDetail(string pollid)
         {
-            return View(new PollInformation());
+            return View(new PollInformation { Choices = new List<ChoiceInformation>() });
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateChoice()
+        public async Task<ActionResult> CreateChoice(string pollid, string choicename)
         {
             await choiceDac.CreateChoice(new Choice
             {
