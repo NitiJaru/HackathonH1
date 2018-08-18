@@ -23,7 +23,7 @@
                         <p style="font-size: 30px">@item.Name</p>
                     </div>
                     <div class="text-right col-md-6">
-                        <p>@item.CreateDate<br /><b>By @item.OwnerName</b></p>
+                        <p>@string.Format("{0:dd.MM.yy}",item.CreateDate)<br /><b>By @item.OwnerName</b></p>
                     </div>
                 </div>
             </div>
