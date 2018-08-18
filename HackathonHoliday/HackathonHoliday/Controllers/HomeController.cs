@@ -124,7 +124,7 @@ namespace HackathonHoliday.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ChoiceDetail(ChoiceInformation model)
+        public async Task<ActionResult> ChoiceDetail(DisplayChoiceInformation model)
         {
             var choice = await choiceDac.GetChoice(model.Id);
             var voted = choice.Votes.FirstOrDefault(it => it.Owner == User.Identity.Name);
