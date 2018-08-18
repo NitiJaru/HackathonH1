@@ -24,15 +24,16 @@ namespace HackathonHoliday.Dac
         {
             await collection.InsertOneAsync(model);
         }
-        
+
         public Task DeleteVote(string choiceId, string username)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Choice>> GetChoiceByPollId(string id)
+        public async Task<IEnumerable<Choice>> GetChoiceByPollId(string id)
         {
-            throw new NotImplementedException();
+            var model = await collection.Find(x => x.PollId == id).ToListAsync();
+            return model;
         }
 
         public Task UpdateChoice(Choice model)

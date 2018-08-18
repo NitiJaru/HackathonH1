@@ -39,7 +39,28 @@ namespace HackathonHoliday.Controllers
         public async Task<ActionResult> Polls()
         {
             var polls = await pollDac.GetPolls();
-            return View(new List<PollInformation>());
+            var model = new List<PollInformation>();
+            foreach (var poll in polls)
+            {
+                var choices = await choiceDac.GetChoiceByPollId(poll.Id);
+                var ch = choices.Select(it => new ChoiceInformation
+                {
+                    PollRefId = poll.Id,
+                    Name = it.Title
+                });
+
+                var pollInfo = new PollInformation
+                {
+                    Id = poll.Id,
+                    Name = poll.Topic,
+                    OwnerName = poll.Owner,
+                    CreateDate = poll.CreateAt,
+                    Choices = ch
+                };
+
+                model.Add(pollInfo);
+            }
+            return View(model);
         }
 
         [HttpGet]
