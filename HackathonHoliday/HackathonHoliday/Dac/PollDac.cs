@@ -25,6 +25,12 @@ namespace HackathonHoliday.Dac
             await collection.InsertOneAsync(model);
         }
 
+        public async Task<Poll> GetPoll(string id)
+        {
+            var model = await collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            return model;
+        }
+
         public async Task<IEnumerable<Poll>> GetPolls()
         {
             var model = await collection.Find(x => true).ToListAsync();

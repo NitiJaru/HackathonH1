@@ -11,5 +11,6 @@ namespace HackathonHoliday.Dac.Contract
     {
         Task CreatePoll(Poll model);
         Task<IEnumerable<Poll>> GetPolls();
+        Task<Poll> GetPoll(string id);
     }
 }
