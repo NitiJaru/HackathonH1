@@ -108,6 +108,7 @@ namespace HackathonHoliday.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateChoice(string id, string choicename)
         {
+            if (id == null || choicename == null) return RedirectToAction(nameof(CreatePoll));
             await choiceDac.CreateChoice(new Choice
             {
                 Id = Guid.NewGuid().ToString(),

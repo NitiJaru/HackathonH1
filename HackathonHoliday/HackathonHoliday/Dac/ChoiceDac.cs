@@ -42,9 +42,9 @@ namespace HackathonHoliday.Dac
             return model;
         }
 
-        public Task UpdateChoice(Choice model)
+        public async Task UpdateChoice(Choice model)
         {
-            throw new NotImplementedException();
+            await collection.ReplaceOneAsync(x => x.Id == model.Id, model);
         }
     }
 }
