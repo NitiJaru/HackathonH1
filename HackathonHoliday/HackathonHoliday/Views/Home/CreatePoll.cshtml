@@ -4,10 +4,14 @@
     ViewBag.Title = "Create Poll";
 }
 
-<a href="@Url.Action("Polls","Home")" class="btn btn-default" style="min-width: 100px">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    Back
-</a>
+<div class="row">
+    <div class="col-md-2">
+        <a href="@Url.Action("Polls","Home")" class="btn btn-block btn-default" style="min-width: 100px">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            Back
+        </a>
+    </div>
+</div>
 
 <div class="text-center">
     <h1 style="color:grey"><b>Create Poll</b></h1>
@@ -19,7 +23,11 @@
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "display: block; background-color: #eaeaea; border: unset;", type = "text", required = "required" })
                 <p>By @HttpContext.Current.User.Identity.Name</p>
             </div>
-            <button type="submit" class="btn btn-success">Create</button>
+            <div class="row">
+                <div class="col-md-offset-5 col-md-2">
+                    <button type="submit" class="btn btn-block btn-success">Create</button>
+                </div>
+            </div>
         </form>
     </center>
 </div>

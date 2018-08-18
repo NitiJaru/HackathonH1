@@ -19,10 +19,10 @@
         <a href="@Url.Action("PollDetail","Home",new { pollid=item.Id })" style="color: grey">
             <div class="panel panel-default" style="background-color: lightgrey; border-radius: 1em 1em;">
                 <div class="panel-body">
-                    <div class="text-left col-md-6">
-                        <p style="font-size: 30px">@item.Name</p>
+                    <div class="text-left col-xs-6">
+                        <p style="font-size: 20px"><b>@item.Name</b></p>
                     </div>
-                    <div class="text-right col-md-6">
+                    <div class="text-right col-xs-6">
                         <p>@string.Format("{0:dd.MM.yy}", item.CreateDate)<br /><b>By @item.OwnerName</b></p>
                     </div>
                 </div>
