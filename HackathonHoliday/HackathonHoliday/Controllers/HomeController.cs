@@ -89,7 +89,7 @@ namespace HackathonHoliday.Controllers
             var poll = await pollDac.GetPoll(pollid);
             var choices = await choiceDac.GetChoiceByPollId(poll.Id);
             var ch = choices.Select(it => {
-                var rate = it.Votes != null && it.Votes.Any() ? (int)Math.Floor(it.Votes.Sum(v => v.Rating) / it.Votes.Count()) : 0;
+                var rate = it.Votes != null && it.Votes.Any() ? (int)Math.Round(it.Votes.Sum(v => v.Rating) / it.Votes.Count()) : 0;
                 return new ChoiceInformation
                 {
                     PollRefId = poll.Id,
@@ -128,7 +128,7 @@ namespace HackathonHoliday.Controllers
         {
             var choice = await choiceDac.GetChoice(choiceid);
             var poll = await pollDac.GetPoll(choice.PollId);
-            var rate = choice.Votes != null && choice.Votes.Any() ? (int)Math.Floor(choice.Votes.Sum(it => it.Rating) / choice.Votes.Count()) : 0 ;
+            var rate = choice.Votes != null && choice.Votes.Any() ? (int)Math.Round(choice.Votes.Sum(it => it.Rating) / choice.Votes.Count()) : 0 ;
             var model = new DisplayChoiceInformation
             {
                 Id = choice.Id,
