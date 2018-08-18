@@ -189,6 +189,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\login.png" />
     <Content Include="Images\loginbutton.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\star.png" />
     <Content Include="Images\starvoted.png" />
     <Content Include="Scripts\bootstrap.js" />
