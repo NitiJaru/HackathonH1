@@ -117,9 +117,10 @@ namespace HackathonHoliday.Controllers
             return RedirectToAction(nameof(PollDetail), new { pollid = id });
         }
 
-        public ActionResult ChoiceDetail()
+        [HttpGet]
+        public ActionResult ChoiceDetail(string choiceid)
         {
-            return View();
+            return View(new DisplayChoiceInformation());
         }
 
         [HttpPost]

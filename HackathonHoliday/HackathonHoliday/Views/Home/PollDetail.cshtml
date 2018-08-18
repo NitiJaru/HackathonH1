@@ -4,6 +4,11 @@
     ViewBag.Title = "Poll Detail";
 }
 
+<a href="@Url.Action("Polls","Home")" class="btn btn-default" style="min-width: 100px; margin-bottom: 4em">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    Back
+</a>
+
 <div class="row">
     <div class="col-md-11 col-md-offset-1">
         <div class="panel panel-default" style="background-color: lightgrey; border-radius: 1em 1em;">
@@ -34,7 +39,7 @@
             </div>
         </div>
         <div class="col-md-1">
-            <a href="@Url.Action(" ChoiceDetail", "Home", new { choiceid=item.Id })" class="btn btn-success">
+            <a href="@Url.Action("ChoiceDetail", "Home", new { choiceid=item.Id })" class="btn btn-success">
                 <img src="~/Images/starvoted.png" />
             </a>
         </div>
