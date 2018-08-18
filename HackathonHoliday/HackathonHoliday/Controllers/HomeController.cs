@@ -94,7 +94,8 @@ namespace HackathonHoliday.Controllers
             await choiceDac.CreateChoice(new Choice
             {
                 Id = Guid.NewGuid().ToString(),
-                PollId = "test",
+                PollId = pollid,
+                Title = choicename
             });
             return RedirectToAction(nameof(PollDetail));
         }
