@@ -72,14 +72,15 @@ namespace HackathonHoliday.Controllers
         [HttpPost]
         public async Task<ActionResult> CreatePoll(PollInformation model)
         {
+            var id = Guid.NewGuid().ToString();
             await pollDac.CreatePoll(new Poll
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = id,
                 Topic = model.Name,
                 Owner = User.Identity.Name,
                 CreateAt = DateTime.UtcNow
             });
-            return RedirectToAction(nameof(PollDetail));
+            return RedirectToAction(nameof(PollDetail), new { pollid = id });
         }
 
         [HttpGet]
@@ -105,15 +106,15 @@ namespace HackathonHoliday.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateChoice(string pollid, string choicename)
+        public async Task<ActionResult> CreateChoice(string id, string choicename)
         {
             await choiceDac.CreateChoice(new Choice
             {
                 Id = Guid.NewGuid().ToString(),
-                PollId = pollid,
+                PollId = id,
                 Title = choicename
             });
-            return RedirectToAction(nameof(PollDetail));
+            return RedirectToAction(nameof(PollDetail), new { pollid = id });
         }
 
         public ActionResult ChoiceDetail()
