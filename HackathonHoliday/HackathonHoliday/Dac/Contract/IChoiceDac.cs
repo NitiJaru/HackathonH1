@@ -13,5 +13,6 @@ namespace HackathonHoliday.Dac.Contract
         Task UpdateChoice(Choice model);
         Task DeleteVote(string choiceId, string username);
         Task<IEnumerable<Choice>> GetChoiceByPollId(string id);
+        Task<Choice> GetChoice(string id);
     }
 }

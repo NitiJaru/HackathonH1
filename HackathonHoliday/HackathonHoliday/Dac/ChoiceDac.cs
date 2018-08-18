@@ -30,6 +30,12 @@ namespace HackathonHoliday.Dac
             throw new NotImplementedException();
         }
 
+        public async Task<Choice> GetChoice(string id)
+        {
+            var model = await collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            return model;
+        }
+
         public async Task<IEnumerable<Choice>> GetChoiceByPollId(string id)
         {
             var model = await collection.Find(x => x.PollId == id).ToListAsync();

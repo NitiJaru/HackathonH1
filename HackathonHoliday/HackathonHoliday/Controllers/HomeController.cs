@@ -119,13 +119,32 @@ namespace HackathonHoliday.Controllers
 
         public ActionResult ChoiceDetail()
         {
-
             return View();
         }
 
         [HttpPost]
-        public ActionResult ChoiceDetail(ChoiceInformation model)
+        public async Task<ActionResult> ChoiceDetail(ChoiceInformation model)
         {
+            var choice = await choiceDac.GetChoice(model.Id);
+            var voted = choice.Votes.FirstOrDefault(it => it.Owner == User.Identity.Name);
+            var votes = choice.Votes.ToList();
+            if (voted != null)
+            {
+                var voteIndex = votes.IndexOf(voted);
+                votes[voteIndex].Rating = 3;
+                votes[voteIndex].CreateAt = DateTime.UtcNow;
+            }
+            else
+            {
+                votes.Add(new Vote
+                {
+                    Owner = User.Identity.Name,
+                    Rating = 3,
+                    CreateAt = DateTime.UtcNow
+                });
+            }
+            choice.Votes = votes;
+            await choiceDac.UpdateChoice(choice);
             return RedirectToAction(nameof(PollDetail));
         }
     }
